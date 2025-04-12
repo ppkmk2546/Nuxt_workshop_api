@@ -11,7 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // ! product type
+app.delete('/api/productType/remove/:id', ProductTypeController.remove); // remove product type
+app.put('/api/productType/update/:id', ProductTypeController.update); // update product type
 app.post('/api/productType/create', ProductTypeController.create);
+app.get('/api/productType/list', ProductTypeController.list) // list all product types
 
 // ! user
 app.post('/api/user/signIn', UserController.signIn);
