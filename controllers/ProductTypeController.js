@@ -24,7 +24,7 @@ module.exports = {
                     status: 'active',
                 },
                 orderBy: {
-                    createdAt: 'desc', // !  ยังไม่แน่ใจ
+                    createdAt: 'desc', // ? ตัวใหม่อยู่บนตัวเก่าอยู่ล่าง
                 }
             });
             res.json( { results: productTypes });
