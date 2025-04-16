@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 
 const UserController = require('./controllers/UserController');
 const ProductTypeController = require('./controllers/ProductTypeController');
-const MaterialController = require('./controllers/MaterialController')
+const MaterialController = require('./controllers/MaterialController');
+const stockMaterialController = require('./controllers/StockMaterialController');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -17,6 +18,9 @@ app.get('/api/material/list', MaterialController.list);
 app.post('/api/material/create', MaterialController.create);
 app.put('/api/material/update/:id', MaterialController.update);
 app.delete('/api/material/remove/:id', MaterialController.remove);
+
+// ! stock material
+app.post('/api/stockMaterial/create', stockMaterialController.create);
 
 // ! product type
 app.delete('/api/productType/remove/:id', ProductTypeController.remove); // remove product type

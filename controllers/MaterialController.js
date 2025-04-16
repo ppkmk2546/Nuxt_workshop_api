@@ -10,6 +10,9 @@ module.exports = {
                 },
                 orderBy: {
                     createdAt: 'desc'  // ? ตัวใหม่อยู่บนตัวเก่าอยู่ล่าง
+                },
+                include: {
+                    StockMaterial: true
                 }
             });
 
