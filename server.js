@@ -7,11 +7,18 @@ const UserController = require('./controllers/UserController');
 const ProductTypeController = require('./controllers/ProductTypeController');
 const MaterialController = require('./controllers/MaterialController');
 const stockMaterialController = require('./controllers/StockMaterialController');
+const PackagingController = require('./controllers/PackagingController');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+// ! packaging
+app.put('/api/packaging/update/:id', PackagingController.update); // update packaging
+app.delete('/api/packaging/remove/:id', PackagingController.remove);
+app.get('/api/packaging/list', PackagingController.list); // list all packagings
+app.post('/api/packaging/create', PackagingController.create);
 
 // ! material
 app.get('/api/material/list', MaterialController.list);
@@ -20,6 +27,8 @@ app.put('/api/material/update/:id', MaterialController.update);
 app.delete('/api/material/remove/:id', MaterialController.remove);
 
 // ! stock material
+app.delete('/api/stockMaterial/remove/:id', stockMaterialController.remove);
+app.get('/api/stockMaterial/list', stockMaterialController.list); // list all stock materials
 app.post('/api/stockMaterial/create', stockMaterialController.create);
 
 // ! product type
